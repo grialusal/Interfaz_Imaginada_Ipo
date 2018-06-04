@@ -1,0 +1,142 @@
+html, body {
+	height: 100%;
+}
+
+body {
+	max-width: 100%;
+}
+
+img {
+	height: 10%;
+	width: 10%;
+}
+
+.img_rotated {
+	transform: rotate(90deg);
+}
+
+p {
+	margin: 0;
+}
+
+.nav-menu {
+	width: 100%;
+}
+
+.menu {
+	text-align: center; 
+	padding-top: 15px;
+	padding-bottom: 15px;
+	font-size: 20px;
+	background-color: #52c9ff;
+}
+
+.menu a {
+	color: white;
+}
+
+.menu a:hover {
+	color: white;
+}
+
+.content {
+	background-image: url('../calle.jpg');
+	background-size: cover;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	padding: 0px;
+}
+
+.container-fluid {
+	padding: 0;
+}
+
+.overlay {
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	background-color: #D1EAFF;
+}
+
+.pre-tabla {
+	height: 100%;
+}
+
+.tabla {
+	height: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-top: 10px;
+	margin-bottom: 20%;
+	border-style: solid;
+	color: black;
+	background-color: none;
+	font-size: 20px;
+	padding: 0px;
+}
+
+.tabla > .row {
+	height: 100%;
+	margin: auto;
+}
+
+.columna_tabla {
+	height: 100%;
+	padding: 0;
+	border-style: solid;
+	overflow: auto;
+}
+
+.columna_titulo {
+	text-align: center;
+	color: black;
+	margin-top: 3%;
+	margin-bottom: 3%;
+}
+
+.columna_titulo h2 {
+	font-size: 40px;
+}
+
+.task {
+	border-style: solid;
+	border-radius: 30px;
+	padding: 15px 20px;
+	margin: 15px;
+	background-color: white;
+}
+
+.task_body {
+	padding: 15px;
+}
+
+.task_item {
+	margin-left: 5px;
+}
+
+.task_options {
+	width: 100%;
+	margin: 20px 10px 0px 10px;
+}
+
+.option {
+	width: 100%;
+}
+
+.delete_task {
+	width: 100%;
+	margin: 20px 20px 0px 20px;
+}
+
+/* Prevent the text contents of draggable elements from being selectable. */
+[draggable] {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  /* Required to make elements draggable in old WebKit */
+  -khtml-user-drag: element;
+  -webkit-user-drag: element;
+}
+

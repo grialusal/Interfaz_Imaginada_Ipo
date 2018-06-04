@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>productividad</title>
+  <link rel="stylesheet" type="text/css" href="css/productividad.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.highcharts.com/highcharts.src.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $('#burndown').highcharts({
+        title: {
+          text: 'Tareas del lunes ',
+          x: -20 //center
+        },
+        colors: ['blue', 'red'],
+        plotOptions: {
+          line: {
+            lineWidth: 3
+          },
+          tooltip: {
+            hideDelay: 200
+          }
+        },
+        subtitle: {
+          text: '04/6/2018',
+          x: -20
+        },
+        xAxis: {
+          categories: ['0:00h', '2:00h', '4:00h', '6:00h', '8:00h', '10:00h',
+                       '12:00h', '14:00h', '16:00h', '18:00h', '20:00h', '22:00h']
+        },
+        yAxis: {
+          title: {
+            text: 'Tareas por realizar'
+          },
+          plotLines: [{
+            value: 0,
+            width: 1
+          }]
+        },
+        tooltip: {
+          valueSuffix: ' tareas',
+          crosshairs: true,
+          shared: true
+        },
+        legend: {
+          layout: 'vertical',
+          align: 'right',
+          verticalAlign: 'middle',
+          borderWidth: 0
+        },
+        series: [{
+          name: 'Planificación ideal',
+          color: 'rgba(255,0,0,0.25)',
+          lineWidth: 2,
+          data: [8, 7, 6, 7, 6, 4, 5, 4, 3, 0, 0, 0]
+        }, {
+          name: 'Planificación actual',
+          color: 'rgba(0,120,200,0.75)',
+          marker: {
+            radius: 6
+          },
+          data: [8, 7, 7, 7, 6, 5, 6, 4, 3, 1, 1, 0]
+        }]
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="content">
+    <div class="nav-menu container-fluid">
+      <div class="row menu">
+        <div class="col-lg-3 col-sm-3">
+          <a href="calendario.html">Calendario</a>
+        </div>
+        <div class="col-lg-3 col-sm-3">
+          <a href="tabla.html">Tabla</a>
+        </div>
+        <div class="col-lg-3 col-sm-3">
+          <a href="#">Productividad</a>
+        </div>
+        <div class="col-lg-3 col-sm-3">
+          <a href="ajustes.html">Ajustes</a>
+        </div>
+      </div>
+    </div>
+    <div class="overlay">
+      <div class="row container-fluid pre-grafica">
+        <div class="col-10 grafica">
+          <div id="burndown"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

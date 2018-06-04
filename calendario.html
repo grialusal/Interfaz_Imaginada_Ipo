@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+	<meta charset="utf-8">
+	<title>Tasks | Calendario</title>
+	<meta name="description" content="jsCalendar demo - date events">
+	<meta name="author" content="GramThanos">
+	<link rel="stylesheet" type="text/css" href="source/jsCalendar.css">
+	<link rel="stylesheet" type="text/css" href="themes/jsCalendar.micro">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/calendario.css">
+
+	<!-- jsCalendar -->
+	<script type="text/javascript" src="source/jsCalendar.js"></script>
+
+	<!--[if lt IE 9]>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div class="content">
+		<div class="nav-menu container-fluid">
+			<div class="row menu">
+				<div class="col-lg-3 col-sm-3">
+					<a href="calendario.html">Calendario</a>
+				</div>
+				<div class="col-lg-3 col-sm-3">
+					<a href="tabla.html">Tabla</a>
+				</div>
+				<div class="col-lg-3 col-sm-3">
+					<a href="productividad.html">Productividad</a>
+				</div>
+				<div class="col-lg-3 col-sm-3">
+					<a href="ajustes.html">Ajustes</a>
+				</div>
+			</div>
+		</div>
+		<div class="overlay">
+			<div class="row container-fluid pre-calendario">
+				<div class="col-10 calendario">
+					<!-- Calendar element -->
+					<div id="events-calendar"></div>
+					<!-- Clear -->
+					<div class="clear"></div>
+					<button id="myBtn">Añadir Tarea</button>
+					<div id="myModal" class="modal">
+					  <!-- Button to add task -->
+					  <div class="modal-content">
+					    <span class="close">&times;</span>
+					    <div id="events"></div>
+					  </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+		<!-- Button to add task -->
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<div id="events"></div>
+		</div>
+	</div>
+
+	<script>
+	// Get the modal
+	var modal = document.getElementById('myModal');
+
+	// Get the button that opens the modal
+	var btn = document.getElementById("myBtn");
+
+	// Get the <span> element that closes the modal
+	var span = document.getElementsByClassName("close")[0];
+
+	// When the user clicks the button, open the modal
+	btn.onclick = function() {
+	    modal.style.display = "block";
+	}
+
+	// When the user clicks on <span> (x), close the modal
+	span.onclick = function() {
+	    modal.style.display = "none";
+	}
+
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+	    if (event.target == modal) {
+	        modal.style.display = "none";
+	    }
+	}
+	</script>
+	<div>
+		<!-- Events
+		<div id="events"></div> -->
+	</div>
+	<div class="clear"></div>
+
+	<!-- Create the calendar -->
+	<script type="text/javascript">
+		// Get elements
+		var elements = {
+			// Calendar element
+			calendar : document.getElementById("events-calendar"),
+			// Input element
+			events : document.getElementById("events")
+		}
+
+		// Create the calendar
+		elements.calendar.className = "material-theme";
+		var calendar = jsCalendar.new(elements.calendar);
+
+		// Create events elements/*
+		elements.title = document.createElement("div");
+		elements.title.className = "title";
+		elements.events.appendChild(elements.title);
+		elements.subtitle = document.createElement("div");
+		elements.subtitle.className = "subtitle";
+		elements.events.appendChild(elements.subtitle);
+		elements.list = document.createElement("div");
+		elements.list.className = "list";
+		elements.events.appendChild(elements.list);
+		elements.actions = document.createElement("div");
+		elements.actions.className = "action";
+		elements.events.appendChild(elements.actions);
+		elements.addButton = document.createElement("input");
+		elements.addButton.type = "button";
+		elements.addButton.value = "Añadir";
+		elements.actions.appendChild(elements.addButton);
+
+		var events = {};
+		var date_format = "DD/MM/YYYY";
+		var current = null;
+
+		var showEvents = function(date){
+			// Date string
+			var id = jsCalendar.tools.dateToString(date, date_format, "es");
+			// Set date
+			current = new Date(date.getTime());
+			// Set title
+			elements.title.textContent = id;
+			// Clear old events
+			elements.list.innerHTML = "";
+			// Add events on list
+			if (events.hasOwnProperty(id) && events[id].length) {
+				// Number of events
+				elements.subtitle.textContent = events[id].length + " " + ((events[id].length > 1) ? "events" : "eventos");
+
+				var div;
+				var close;
+				// For each event
+				for (var i = 0; i < events[id].length; i++) {
+					div = document.createElement("div");
+					div.className = "event-item";
+					div.textContent = (i + 1) + ". " + events[id][i].name;
+					elements.list.appendChild(div);
+					close = document.createElement("div");
+					close.className = "close";
+					close.textContent = "×";
+					div.appendChild(close);
+					close.addEventListener("click", (function (date, index) {
+						return function () {
+							removeEvent(date, index);
+						}
+					})(date, i), false);
+				}
+			} else {
+				elements.subtitle.textContent = "Vacío";
+			}
+		};
+
+		var removeEvent = function (date, index) {
+			// Date string
+			var id = jsCalendar.tools.dateToString(date, date_format, "es");
+
+			// If no events return
+			if (!events.hasOwnProperty(id)) {
+				return;
+			}
+			// If not found
+			if (events[id].length <= index) {
+				return;
+			}
+
+			// Remove event
+			events[id].splice(index, 1);
+
+			// Refresh events
+			showEvents(current);
+
+			// If no events uncheck date
+			if (events[id].length === 0) {
+				calendar.unselect(date);
+			}
+		}
+
+		// Show current date events
+		showEvents(new Date());
+
+		// Add events
+		calendar.onDateClick(function(event, date){
+			// Update calendar date
+			calendar.set(date);
+			// Show events
+			showEvents(date);
+		});
+
+		elements.addButton.addEventListener("click", function(){
+			// Get event name
+			var names = ["John", "Bob", "Anna", "George", "Harry", "Jack", "Alexander"];
+			var name = prompt(
+				"Información del evento",
+				names[Math. floor(Math.random() * names.length)] + "'s birthday."
+			);
+
+			//Return on cancel
+			if (name === null || name === "") {
+				return;
+			}
+
+			// Date string
+			var id = jsCalendar.tools.dateToString(current, date_format, "es");
+
+			// If no events, create list
+			if (!events.hasOwnProperty(id)) {
+				// Select date
+				calendar.select(current);
+				// Create list
+				events[id] = [];
+			}
+
+			// Add event
+			events[id].push({name : name});
+
+			// Refresh events
+			showEvents(current);
+		}, false);
+	</script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tareas</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/table.css">
+</head>
+<body>
+
+	<div class="content">
+		<div class="nav-menu container-fluid">
+			<div class="row menu">
+				<div class="col-lg-3 col-sm-3">
+					<a href="index.html">Inicio</a>
+				</div>
+				<div class="col-lg-3 col-sm-3">
+					<a href="calendar.html">Calendario</a>
+				</div>
+				<div class="col-lg-3 col-sm-3">
+					<a href="">Tareas</a>
+				</div>
+				<div class="col-lg-3 col-sm-3">
+					<a href="settings.html">Ajustes</a>
+				</div>
+			</div>
+		</div>
+		<div class="overlay">
+			<div class="row container-fluid pre-tabla">
+				<div class="col-10 tabla">
+					<div class="row">
+						<div class="col-4 columna_tabla">
+							<div class="columna_titulo">
+								<h2>To do...</h2>
+							</div>
+							<div id="task1" class="row task" draggable="true">
+								<p class="col-10">lorem ipsum perdi</p>
+								<img src="next.png" class="col-2">
+							</div>
+							<div id="task2" class="row task" draggable="true">
+								<p class="col-10">lorem ipsum perdi</p>
+								<img src="next.png" class="col-2">
+							</div>
+							<div id="task2" class="row task" draggable="true">
+								<p class="col-10">lorem ipsum perdi</p>
+								<img src="next.png" class="col-2">
+							</div>
+							<div id="task2" class="row task" draggable="true">
+								<p class="col-10">lorem ipsum perdi</p>
+								<img src="next.png" class="col-2">
+							</div>
+						</div>
+						<div class="col-4 columna_tabla">
+							<div class="columna_titulo">
+								<h2>Doing...</h2>
+							</div>
+							<div id="task3" class="row task" draggable="true">
+								<p class="col-10">lorem ipsum perdi</p>
+								<img src="next.png" class="col-2 img_rotated">
+								<div class="row task_body">
+									<div class="col-12">
+										<div class="row task_item">
+											<p class="col-12">
+												Perdi
+											</p>
+										</div>
+										<div class="row task_item">
+											<p class="col-12">
+												Perdi
+											</p>
+										</div>
+										<div class="row task_item">
+											<p class="col-12">
+												Perdi
+											</p>
+										</div>
+									</div>
+									<div class="row task_options">
+										<div class="col-4">
+											<button class="btn btn-info option">To do</button>
+										</div>
+										<div class="col-4">
+											<button class="btn btn-warning option">Doing</button>
+										</div>
+										<div class="col-4">
+											<button class="btn btn-success option">Done</button>
+										</div>
+									</div>
+									<div class="row delete_task">
+										<button class="btn btn-danger option">Eliminar</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-4 columna_tabla">
+							<div class="columna_titulo">
+								<h2>Done...</h2>
+							</div>
+							<div id="task4" class="row task" draggable="true">
+								<p class="col-10">lorem ipsum perdi</p>
+								<img src="next.png" class="col-2">
+							</div>
+							<div id="task5" class="row task" draggable="true">
+								<p class="col-10">lorem ipsum perdi</p>
+								<img src="next.png" class="col-2">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+	<script type="text/javascript">
+		function handleDragStart(e) {
+
+		    dragSrcEl = this;
+
+		    e.dataTransfer.effectAllowed = 'move';
+		    e.dataTransfer.setData('text/html', this.innerHTML);
+		}
+
+		function handleDragOver(e) {
+		  if (e.preventDefault) {
+		    e.preventDefault();
+		  }
+		  e.dataTransfer.dropEffect = 'move';
+		  return false;
+		}
+
+		function handleDragEnter(e) {
+		  this.classList.add('over');
+		}
+
+		function handleDragLeave(e) {
+		  this.classList.remove('over');
+		}
+
+		function handleDrop(e) {
+			if (e.stopPropagation) {
+				e.stopPropagation();
+			}
+		    if (dragSrcEl != this) {
+				if (this.className.localeCompare("row task") != 0) {
+					this.appendChild(dragSrcEl);
+				}
+		    }
+			return false;
+		}
+
+		function handleDragEnd(e) {
+		  [].forEach.call(tasks, function (task) {
+		    task.classList.remove('over');
+		  });
+		}
+
+		function handleTouchStart(e) {
+			dragSrcEl = this;
+
+			alert("Perdi");
+
+		    e.dataTransfer.effectAllowed = 'move';
+		    e.dataTransfer.setData('text/html', this.innerHTML);
+		}
+
+		function handleTouchEnd(e) {
+			
+		}
+
+		function handleTouchCancel(e) {
+			
+		}
+
+		function handleTouchLeave(e) {
+			if (e.stopPropagation) {
+				e.stopPropagation();
+			}
+			alert("perdi");
+		    if (dragSrcEl != this) {
+				if (this.className.localeCompare("row task") != 0) {
+					this.appendChild(dragSrcEl);
+				}
+		    }
+			return false;
+		}
+
+		function handleTouchMove(e) {
+			dragSrcEl = this;
+
+			e.dataTransfer.effectAllowed = 'move';
+			e.dataTransfer.setData('text/html', this.innerHTML);
+		}
+
+		var tasks = document.querySelectorAll('.columna_tabla .task');
+		[].forEach.call(tasks, function(task) {
+			task.addEventListener('dragstart', handleDragStart, false);
+			task.addEventListener('dragenter', handleDragEnter, false)
+			task.addEventListener('dragover', handleDragOver, false);
+			task.addEventListener('dragleave', handleDragLeave, false);
+			task.addEventListener('drop', handleDrop, false);
+			task.addEventListener('dragend', handleDragEnd, false);
+			task.addEventListener("touchstart", handleStart, false);
+			task.addEventListener("touchend", handleEnd, false);
+			task.addEventListener("touchcancel", handleCancel, false);
+			task.addEventListener("touchleave", handleLeave, false);
+			task.addEventListener("touchmove", handleMove, false);
+		});
+
+		var cols = document.querySelectorAll('.columna_tabla');
+		[].forEach.call(cols, function(col) {
+			col.addEventListener('dragenter', handleDragEnter, false);
+			col.addEventListener('dragleave', handleDragLeave, false);
+			col.addEventListener('drop', handleDrop, false);
+			col.addEventListener('dragover', handleDragOver, false);
+			col.addEventListener('dragend', handleDragEnd, false);
+		})
+
+	</script>
+
+</body>
+</html>
