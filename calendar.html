@@ -22,28 +22,35 @@
 		<div class="nav-menu container-fluid">
 			<div class="row menu">
 				<div class="col-lg-3 col-sm-3">
-					<a href="index.html">Inicio</a>
+					<a href="calendario.html">Calendario</a>
 				</div>
 				<div class="col-lg-3 col-sm-3">
-					<a href="">Calendario</a>
+					<a href="tabla.html">Tabla</a>
 				</div>
 				<div class="col-lg-3 col-sm-3">
-					<a href="table.html">Tareas</a>
+					<a href="productividad.html">Productividad</a>
 				</div>
 				<div class="col-lg-3 col-sm-3">
-					<a href="settings.html">Ajustes</a>
+					<a href="ajustes.html">Ajustes</a>
 				</div>
 			</div>
 		</div>
 		<div class="overlay">
 			<div class="row container-fluid pre-calendario">
-				<div class="calendario">
+				<div class="col-10 calendario">
 					<!-- Calendar element -->
 					<div id="events-calendar"></div>
 					<!-- Clear -->
 					<div class="clear"></div>
-					<button id="myBtn">Añadir Tarea</button>
-					<div id="myModal" class="modal">
+					<div class="row">
+						<div class="col-6">
+							<button id="myBtn">Añadir Tarea</button>
+						</div>
+						<div class="col-6">
+							<button id="myBtnConsult">Consultar</button>
+						</div>
+					</div>
+					<div id="myModal" class="modal" onclick="addtarea();">
 					  <!-- Button to add task -->
 					  <div class="modal-content">
 					    <span class="close">&times;</span>
@@ -68,7 +75,7 @@
 	var modal = document.getElementById('myModal');
 
 	// Get the button that opens the modal
-	var btn = document.getElementById("myBtn");
+	var btn = document.getElementById("myBtnConsult");
 
 	// Get the <span> element that closes the modal
 	var span = document.getElementsByClassName("close")[0];
@@ -123,14 +130,14 @@
 		elements.actions = document.createElement("div");
 		elements.actions.className = "action";
 		elements.events.appendChild(elements.actions);
-		elements.addButton = document.createElement("input");
-		elements.addButton.type = "button";
-		elements.addButton.value = "Añadir";
-		elements.actions.appendChild(elements.addButton);
 
 		var events = {};
 		var date_format = "DD/MM/YYYY";
 		var current = null;
+
+		function addtarea() {
+
+		}
 
 		var showEvents = function(date){
 			// Date string
@@ -205,8 +212,10 @@
 			showEvents(date);
 		});
 
-		elements.addButton.addEventListener("click", function(){
+		document.getElementById("myBtn").addEventListener("click", function(){
 			// Get event name
+
+			console.log("HOLIII");
 			var names = ["John", "Bob", "Anna", "George", "Harry", "Jack", "Alexander"];
 			var name = prompt(
 				"Información del evento",
@@ -235,6 +244,8 @@
 			// Refresh events
 			showEvents(current);
 		}, false);
+
+
 	</script>
 </body>
 </html>

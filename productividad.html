@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>productividad</title>
+  <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="css/productividad.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -10,7 +11,7 @@
     $(function () {
       $('#burndown').highcharts({
         title: {
-          text: 'Tareas del lunes ',
+          text: 'Productividad',
           x: -20 //center
         },
         colors: ['blue', 'red'],
@@ -23,24 +24,24 @@
           }
         },
         subtitle: {
-          text: '04/6/2018',
+          text: 'Este mes',
           x: -20
         },
         xAxis: {
-          categories: ['0:00h', '2:00h', '4:00h', '6:00h', '8:00h', '10:00h',
-                       '12:00h', '14:00h', '16:00h', '18:00h', '20:00h', '22:00h']
+          categories: ['0:00h', '1:00h', '2:00h', '3:00h', '4:00h', '5:00h', '6:00h', '7:00h', '8:00h', '9:00h', '10:00h', '11:00h',
+                       '12:00h', '13:00h', '14:00h', '15:00h', '16:00h', '17:00h', '18:00h', '19:00h', '20:00h', '21:00h', '22:00h', '23:00h']
         },
         yAxis: {
           title: {
-            text: 'Tareas por realizar'
+            text: 'productividad (%)'
           },
           plotLines: [{
-            value: 0,
+            value: 1,
             width: 1
           }]
         },
         tooltip: {
-          valueSuffix: ' tareas',
+          valueSuffix: ' %',
           crosshairs: true,
           shared: true
         },
@@ -51,17 +52,10 @@
           borderWidth: 0
         },
         series: [{
-          name: 'Planificación ideal',
-          color: 'rgba(255,0,0,0.25)',
+          name: 'productividad',
+          color: 'rgb(82, 201, 255)',
           lineWidth: 2,
-          data: [8, 7, 6, 7, 6, 4, 5, 4, 3, 0, 0, 0]
-        }, {
-          name: 'Planificación actual',
-          color: 'rgba(0,120,200,0.75)',
-          marker: {
-            radius: 6
-          },
-          data: [8, 7, 7, 7, 6, 5, 6, 4, 3, 1, 1, 0]
+          data: [23.5, 27.2, 15.9, 4.4, 0, 0, 0, 0, 5.6, 27.6, 40.5, 65.6, 70.8, 73.3, 32.1, 10.4, 23.9, 33.3, 67.4, 48.3, 34.0, 12.1, 19.7, 18.5]
         }]
       });
     });

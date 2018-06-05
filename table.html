@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Tareas</title>
+	<meta charset="utf-8">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="css/table.css">
 </head>
@@ -25,98 +26,390 @@
 			</div>
 		</div>
 		<div class="overlay">
-			<div class="row container-fluid pre-tabla">
-				<div class="col-10 tabla">
-					<div class="row">
-						<div class="col-4 columna_tabla">
-							<div class="columna_titulo">
-								<h2>To do...</h2>
+					<div class="row container-fluid pre-tabla">
+						<div class="col-10 tabla">
+							<div class="row">
+								<div id="todo" class="col-4 columna_tabla">
+									<div class="columna_titulo">
+										<h2>To do...</h2>
+									</div>
+									<div class="row task" draggable="true">
+										<label class="col-10" contenteditable="true">Juegos que me quiero pasar</label>
+										<img src="next.png" class="col-2 closed" onclick="toggle(this);">
+										<div class="row task_body" style="display: none;">
+											<div class="col-12">
+												<div class="row task_item">
+													<p class="col-12" contenteditable="true">
+													  God Of War
+													</p>
+												</div>
+												<div class="row task_item">
+													<p class="col-12" contenteditable="true">
+													  The Witcher 3
+													</p>
+												</div>
+												<div class="row task_item">
+													<p class="col-12" contenteditable="true">
+														Bloodborne
+													</p>
+												</div>
+											</div>
+											<div class="row task_options">
+												<div class="col-4 col-sm-12 option_button">
+													<button class="btn btn-info option" onclick="todo(this);">To do</button>
+												</div>
+												<div class="col-4 col-sm-12 option_button">
+													<button class="btn btn-warning option" onclick="doing(this);">Doing</button>
+												</div>
+												<div class="col-4 col-sm-12 option_button">
+													<button class="btn btn-success option" onclick="done(this);">Done</button>
+												</div>
+											</div>
+											<div class="row delete_task">
+												<button class="btn btn-danger option" onclick="delet(this);">Eliminar</button>
+											</div>
+										</div>
+									</div>
+									<div class="row task" draggable="true">
+										<label class="col-10" contenteditable="true">Trabajo de Interacción Persona-Ordenador</label>
+										<img src="next.png" class="col-2 closed" onclick="toggle(this);">
+										<div class="row task_body" style="display: none;">
+											<div class="col-12">
+												<div class="row task_item">
+													<p class="col-12" contenteditable="true">
+														Acabar informe
+													</p>
+												</div>
+												<div class="row task_item">
+													<p class="col-12" contenteditable="true">
+														Grabar 2 evaluaciones de usuario más
+													</p>
+												</div>
+												<div class="row task_item">
+													<p class="col-12" contenteditable="true">
+														Terminar conclusiones
+													</p>
+												</div>
+											</div>
+											<div class="row task_options">
+												<div class="col-4 col-sm-12 option_button">
+													<button class="btn btn-info option" onclick="todo(this);">To do</button>
+												</div>
+												<div class="col-4 col-sm-12 option_button">
+													<button class="btn btn-warning option" onclick="doing(this);">Doing</button>
+												</div>
+												<div class="col-4 col-sm-12 option_button">
+													<button class="btn btn-success option" onclick="done(this);">Done</button>
+												</div>
+											</div>
+											<div class="row delete_task">
+												<button class="btn btn-danger option" onclick="delet(this);">Eliminar</button>
+											</div>
+										</div>
+									</div>
+									<div class="row task" draggable="true">
+										<label class="col-10" contenteditable="true">Estudiar Redes</label>
+										<img src="next.png" class="col-2 closed" onclick="toggle(this);">
+										<div class="row task_body" style="display: none;">
+											<div class="col-12">
+												<div class="row task_item">
+													<p class="col-12" contenteditable="true">
+														PRIMERA MATRICULA
+													</p>
+												</div>
+												<div class="row task_item">
+													<p class="col-12" contenteditable="true">
+														Igual se aprueba en tercera matricula
+													</p>
+												</div>
+												<div class="row task_item">
+													<p class="col-12" contenteditable="true">
+														Pedir compensatoria...
+													</p>
+												</div>
+											</div>
+											<div class="row task_options">
+												<div class="col-4 col-sm-12 option_button">
+													<button class="btn btn-info option" onclick="todo(this);">To do</button>
+												</div>
+												<div class="col-4 col-sm-12 option_button">
+													<button class="btn btn-warning option" onclick="doing(this);">Doing</button>
+												</div>
+												<div class="col-4 col-sm-12 option_button">
+													<button class="btn btn-success option" onclick="done(this);">Done</button>
+												</div>
+											</div>
+											<div class="row delete_task">
+												<button class="btn btn-danger option" onclick="delet(this);">Eliminar</button>
+											</div>
+										</div>
+									</div>
+									<div class="row task" draggable="true">
+										<label class="col-10" contenteditable="true">Practicas de empresas</label>
+										<img src="next.png" class="col-2 closed" onclick="toggle(this);">
+										<div class="row task_body" style="display: none;">
+											<div class="col-12">
+												<div class="row task_item">
+													<p class="col-12" contenteditable="true">
+														Contactar con la empresa
+													</p>
+												</div>
+												<div class="row task_item">
+													<p class="col-12" contenteditable="true">
+														Hablar con el decano
+													</p>
+												</div>
+												<div class="row task_item">
+													<p class="col-12" contenteditable="true">
+														Hacer curriculum
+													</p>
+												</div>
+											</div>
+											<div class="row task_options">
+												<div class="col-4 col-sm-12 option_button">
+													<button class="btn btn-info option" onclick="todo(this);">To do</button>
+												</div>
+												<div class="col-4 col-sm-12 option_button">
+													<button class="btn btn-warning option" onclick="doing(this);">Doing</button>
+												</div>
+												<div class="col-4 col-sm-12 option_button">
+													<button class="btn btn-success option" onclick="done(this);">Done</button>
+												</div>
+											</div>
+											<div class="row delete_task">
+												<button class="btn btn-danger option" onclick="delet(this);">Eliminar</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="doing" class="col-4 columna_tabla">
+									<div class="columna_titulo">
+										<h2>Doing...</h2>
+									</div>
+									<div class="row task" draggable="true">
+										<label class="col-10" contenteditable="true">Tareas diarias</label>
+										<img src="next.png" class="col-2 img_rotated opened" onclick="toggle(this);">
+										<div class="row task_body">
+											<div class="col-12">
+												<div class="row task_item">
+													<p class="col-12" contenteditable="true">
+														Comprar el pan
+													</p>
+												</div>
+												<div class="row task_item">
+													<p class="col-12" contenteditable="true">
+														Pasear al perro
+													</p>
+												</div>
+												<div class="row task_item">
+													<p class="col-12" contenteditable="true">
+														Hacer la cena
+													</p>
+												</div>
+											</div>
+											<div class="row task_options">
+												<div class="col-4 col-sm-12 option_button">
+													<button class="btn btn-info option" onclick="todo(this);">To do</button>
+												</div>
+												<div class="col-4 col-sm-12 option_button">
+													<button class="btn btn-warning option" onclick="doing(this);">Doing</button>
+												</div>
+												<div class="col-4 col-sm-12 option_button">
+													<button class="btn btn-success option" onclick="done(this);">Done</button>
+												</div>
+											</div>
+											<div class="row delete_task">
+												<button class="btn btn-danger option" onclick="delet(this);">Eliminar</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="done" class="col-4 columna_tabla">
+									<div class="columna_titulo">
+										<h2>Done...</h2>
+									</div>
+									<div class="row task" draggable="true">
+										<label class="col-10" contenteditable="true">Preparar fiesta de Jose Ignacio</label>
+										<img src="next.png" class="col-2 closed" onclick="toggle(this);">
+										<div class="row task_body" style="display: none;">
+											<div class="col-12">
+												<div class="row task_item">
+													<p class="col-12" contenteditable="true">
+														Comprar la tarta
+													</p>
+												</div>
+												<div class="row task_item">
+													<p class="col-12" contenteditable="true">
+														Pedir regalo
+													</p>
+												</div>
+												<div class="row task_item">
+													<p class="col-12" contenteditable="true">
+														Llamar a Miriam
+													</p>
+												</div>
+											</div>
+											<div class="row task_options">
+												<div class="col-4 col-sm-12 option_button">
+													<button class="btn btn-info option" onclick="todo(this);">To do</button>
+												</div>
+												<div class="col-4 col-sm-12 option_button">
+													<button class="btn btn-warning option" onclick="doing(this);">Doing</button>
+												</div>
+												<div class="col-4 col-sm-12 option_button">
+													<button class="btn btn-success option" onclick="done(this);">Done</button>
+												</div>
+											</div>
+											<div class="row delete_task">
+												<button class="btn btn-danger option" onclick="delet(this);">Eliminar</button>
+											</div>
+										</div>
+									</div>
+									<div class="row task" draggable="true">
+										<label class="col-10" contenteditable="true">Cosas para mi perro</label>
+										<img src="next.png" class="col-2 closed" onclick="toggle(this);">
+										<div class="row task_body" style="display: none;">
+											<div class="col-12">
+												<div class="row task_item">
+													<p class="col-12" contenteditable="true">
+														Comprar mas comida
+													</p>
+												</div>
+												<div class="row task_item">
+													<p class="col-12" contenteditable="true">
+														Llevar al veterinario
+													</p>
+												</div>
+												<div class="row task_item">
+													<p class="col-12" contenteditable="true">
+														Llevarlo al campo
+													</p>
+												</div>
+											</div>
+											<div class="row task_options">
+												<div class="col-4 col-sm-12 option_button">
+													<button class="btn btn-info option" onclick="todo(this);">To do</button>
+												</div>
+												<div class="col-4 col-sm-12 option_button">
+													<button class="btn btn-warning option" onclick="doing(this);">Doing</button>
+												</div>
+												<div class="col-4 col-sm-12 option_button">
+													<button class="btn btn-success option" onclick="done(this);">Done</button>
+												</div>
+											</div>
+											<div class="row delete_task">
+												<button class="btn btn-danger option" onclick="delet(this);">Eliminar</button>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
-							<div id="task1" class="row task" draggable="true">
-								<p class="col-10">lorem ipsum perdi</p>
-								<img src="next.png" class="col-2">
+							<div class="row col-12">
+								<button class="col-12" id="myBtn" onclick="add();">Añadir Tarea</button>
 							</div>
-							<div id="task2" class="row task" draggable="true">
-								<p class="col-10">lorem ipsum perdi</p>
-								<img src="next.png" class="col-2">
-							</div>
-							<div id="task2" class="row task" draggable="true">
-								<p class="col-10">lorem ipsum perdi</p>
-								<img src="next.png" class="col-2">
-							</div>
-							<div id="task2" class="row task" draggable="true">
-								<p class="col-10">lorem ipsum perdi</p>
-								<img src="next.png" class="col-2">
-							</div>
-						</div>
-						<div class="col-4 columna_tabla">
-							<div class="columna_titulo">
-								<h2>Doing...</h2>
-							</div>
-							<div id="task3" class="row task" draggable="true">
-								<p class="col-10">lorem ipsum perdi</p>
-								<img src="next.png" class="col-2 img_rotated">
-								<div class="row task_body">
+							<div class="row task clone" draggable="true" style="display: none;">
+								<label class="col-10" contenteditable="true">Nueva tarea</label>
+								<img src="next.png" class="col-2 closed" onclick="toggle(this);">
+								<div class="row task_body" style="display: none;">
 									<div class="col-12">
 										<div class="row task_item">
-											<p class="col-12">
-												Perdi
+											<p class="col-12" contenteditable="true">
+												Añadir subtarea
 											</p>
 										</div>
 										<div class="row task_item">
-											<p class="col-12">
-												Perdi
+											<p class="col-12" contenteditable="true">
+												Añadir subtarea
 											</p>
 										</div>
 										<div class="row task_item">
-											<p class="col-12">
-												Perdi
+											<p class="col-12" contenteditable="true">
+												Añadir subtarea
 											</p>
 										</div>
 									</div>
 									<div class="row task_options">
-										<div class="col-4">
-											<button class="btn btn-info option">To do</button>
+										<div class="col-4 col-sm-12 option_button">
+											<button class="btn btn-info option" onclick="todo(this);">To do</button>
 										</div>
-										<div class="col-4">
-											<button class="btn btn-warning option">Doing</button>
+										<div class="col-4 col-sm-12 option_button">
+											<button class="btn btn-warning option" onclick="doing(this);">Doing</button>
 										</div>
-										<div class="col-4">
-											<button class="btn btn-success option">Done</button>
+										<div class="col-4 col-sm-12 option_button">
+											<button class="btn btn-success option" onclick="done(this);">Done</button>
 										</div>
 									</div>
 									<div class="row delete_task">
-										<button class="btn btn-danger option">Eliminar</button>
+										<button class="btn btn-danger option" onclick="delet(this);">Eliminar</button>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-4 columna_tabla">
-							<div class="columna_titulo">
-								<h2>Done...</h2>
-							</div>
-							<div id="task4" class="row task" draggable="true">
-								<p class="col-10">lorem ipsum perdi</p>
-								<img src="next.png" class="col-2">
-							</div>
-							<div id="task5" class="row task" draggable="true">
-								<p class="col-10">lorem ipsum perdi</p>
-								<img src="next.png" class="col-2">
-							</div>
-						</div>
 					</div>
 				</div>
-			</div>
-		</div>
 	</div>
 
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
 	<script type="text/javascript">
+		function todo(e) {
+			var task = e.parentNode.parentNode.parentNode.parentNode;
+			var todo = document.getElementById('todo');
+			todo.appendChild(task);
+		}
+
+		function doing(e) {
+			var task = e.parentNode.parentNode.parentNode.parentNode;
+			var todo = document.getElementById('doing');
+			todo.appendChild(task);
+		}
+
+		function done(e) {
+			var task = e.parentNode.parentNode.parentNode.parentNode;
+			var todo = document.getElementById('done');
+			todo.appendChild(task);
+		}
+
+		function delet(e) {
+			var task = e.parentNode.parentNode.parentNode;
+			task.remove();
+		}
+
+		function toggle(e) {
+			var div = e.parentNode;
+			var img = e;
+			if (img.className.localeCompare("col-2 closed") == 0) {
+				div.childNodes[5].style = "display: flex;"
+				img.classList.add('img_rotated');
+				img.classList.add('opened');
+				img.classList.remove('closed');
+			} else {
+				div.childNodes[5].style = "display: none;"
+				img.classList.add('closed');
+				img.classList.remove("opened");
+				img.classList.remove("img_rotated");
+			}
+		}
+
+		function add() {
+			var newtask = document.getElementsByClassName('row task clone')[0].cloneNode(true);
+			var div = document.getElementById("todo");
+			newtask.className = 'row task';
+			newtask.style = 'display: flex';
+			newtask.setAttribute('draggable', true);
+			newtask.addEventListener('dragstart', handleDragStart, false);
+			newtask.addEventListener('dragenter', handleDragEnter, false)
+			newtask.addEventListener('dragover', handleDragOver, false);
+			newtask.addEventListener('dragleave', handleDragLeave, false);
+			newtask.addEventListener('drop', handleDrop, false);
+			newtask.addEventListener('dragend', handleDragEnd, false);
+			div.appendChild(newtask);
+			console.log(div);
+		}
+
+
 		function handleDragStart(e) {
-
 		    dragSrcEl = this;
-
 		    e.dataTransfer.effectAllowed = 'move';
 		    e.dataTransfer.setData('text/html', this.innerHTML);
 		}
@@ -155,43 +448,6 @@
 		  });
 		}
 
-		function handleTouchStart(e) {
-			dragSrcEl = this;
-
-			alert("Perdi");
-
-		    e.dataTransfer.effectAllowed = 'move';
-		    e.dataTransfer.setData('text/html', this.innerHTML);
-		}
-
-		function handleTouchEnd(e) {
-			
-		}
-
-		function handleTouchCancel(e) {
-			
-		}
-
-		function handleTouchLeave(e) {
-			if (e.stopPropagation) {
-				e.stopPropagation();
-			}
-			alert("perdi");
-		    if (dragSrcEl != this) {
-				if (this.className.localeCompare("row task") != 0) {
-					this.appendChild(dragSrcEl);
-				}
-		    }
-			return false;
-		}
-
-		function handleTouchMove(e) {
-			dragSrcEl = this;
-
-			e.dataTransfer.effectAllowed = 'move';
-			e.dataTransfer.setData('text/html', this.innerHTML);
-		}
-
 		var tasks = document.querySelectorAll('.columna_tabla .task');
 		[].forEach.call(tasks, function(task) {
 			task.addEventListener('dragstart', handleDragStart, false);
@@ -200,11 +456,6 @@
 			task.addEventListener('dragleave', handleDragLeave, false);
 			task.addEventListener('drop', handleDrop, false);
 			task.addEventListener('dragend', handleDragEnd, false);
-			task.addEventListener("touchstart", handleStart, false);
-			task.addEventListener("touchend", handleEnd, false);
-			task.addEventListener("touchcancel", handleCancel, false);
-			task.addEventListener("touchleave", handleLeave, false);
-			task.addEventListener("touchmove", handleMove, false);
 		});
 
 		var cols = document.querySelectorAll('.columna_tabla');
@@ -214,7 +465,7 @@
 			col.addEventListener('drop', handleDrop, false);
 			col.addEventListener('dragover', handleDragOver, false);
 			col.addEventListener('dragend', handleDragEnd, false);
-		})
+		});
 
 	</script>
 
