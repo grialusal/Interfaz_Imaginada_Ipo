@@ -110,7 +110,7 @@
 		.jsCalendar thead .jsCalendar-week-days th{
 			display: inline-block;
 			height: 22px;
-			width: 65px;
+			width: 90px;
 			margin: 10px 2px;
 			line-height: 36px;
 			text-align: center;
@@ -123,7 +123,7 @@
 		.jsCalendar tbody td {
 			display: inline-block;
 			height: 45px;
-			width: 65px;
+			width: 90px;
 			margin: 10px 2px;
 			line-height: 36px;
 			text-align: center;
